@@ -1,4 +1,4 @@
-import pyscopg 2
+import pyscopg2
 
 def connection_db():
     conn = pyscopg2.connect(

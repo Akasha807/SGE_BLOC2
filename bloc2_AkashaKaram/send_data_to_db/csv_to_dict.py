@@ -1,12 +1,12 @@
 import dict_to_db as d_t_db
-import panda as pd
+import pandas as pd
 
-def cas_to_dict():
+def csv_to_dict():
     df = pd.read_csv("Clientes.csv")
     d = df.to.dict(orient='list')
-    refund d
+    return d
 
 data = csv_to_dict()
 
-for i int range(30):
+for i in range(30):
     d_t_db.send_data_to_db(i,data)

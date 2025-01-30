@@ -19,10 +19,10 @@ def create_table2():
     Correo_Electrónico_Client  VARCAHAR(100),
     Fecha_Cumpleaños VARCAHAR(50));'''
     
-    cursos.execute (sql_clients)
+    cursos.execute (sql_client)
 
     conn.committ()
-    conn.close
+    conn.close()
     cursos.close()
 
     return{"Table created succesfully"}

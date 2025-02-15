@@ -1,20 +1,101 @@
 # -SGE_BLOC2
-## Título
-# Introducción
-...
-Antes de empezar, debemos elegir qué sistema operativo vamos a usar, ya que cada uno requiere una versión diferente de Docker.
 
-- En Windows, se utiliza Docker Desktop, el cual debe activarse cada vez que lo necesitemos.
+# Introducción
+Este documento guía la configuración de un entorno de desarrollo con Docker, PyCharm y PostgreSQL, permitiendo gestionar bases de datos de manera eficiente. Se explican los pasos para instalar Docker, configurar PyCharm con el plugin de Docker, ejecutar un docker-compose.yml con PostgreSQL y pgAdmin, conectar Python con la base de datos mediante psycopg2, trabajar con archivos CSV para insertar datos y realizar operaciones CRUD (create, read, update, delete).
+
+Antes de empezar, debemos elegir qué sistema operativo vamos a usar, ya que cada uno requiere una versión diferente de Docker.
+- En Windows, se utiliza Docker Desktop, el cual debe activarse cada vez que le damos uso.
 - En Linux, se usa Docker Engine.
 
+Podemos descargar Docker desde su página oficial. Nos será útil, ya que nos permite crear y gestionar contenedores, que son entornos aislados donde podemos ejecutar aplicaciones sin preocuparnos por las diferencias entre sistemas operativos.
+![image](https://github.com/user-attachments/assets/734634e7-3f77-4dd4-89ad-bb05a68cab20)
 
-![image](https://github.com/user-attachments/assets/1d896927-9f9c-434f-b840-c45f550600fc)
+Una vez que Docker está instalado y funcionando, procedemos a instalar PyCharm, un entorno de desarrollo integrado (IDE) para Python.
+![image](https://github.com/user-attachments/assets/ed72d987-5dd8-49db-b556-6cff646cd1cd)
 
-Luego debemos instalarnos el pycharCharm e cual podremos el acrchivo docker-compose que sirve pa atal
+Después de instalar PyCharm, lo primero que debemos comprobar es que tengamos la versión 13.10. En caso de que tengamos otra versión, podemos cambiarla desde la configuración.
+![image](https://github.com/user-attachments/assets/0bfcec37-f4cb-49b2-b5d8-12cdbc45ab8a)
 
+Luego, desde allí mismo nos instalamos el plugin de Docker, que nos permitirá conectarnos a Docker desde PyCharm y gestionar contenedores.
+![image](https://github.com/user-attachments/assets/1a4bccac-2f06-46e6-bc07-7451d4e2c7f3)
+
+El archivo `docker-compose.yml` contiene lo siguiente:
+![3](https://github.com/user-attachments/assets/578f07d1-cafa-4f48-a94f-e512670b7b76)
+- **db**: Un contenedor que ejecuta PostgreSQL con un usuario, una contraseña y una base de datos preconfigurados.
+- **pgAdmin**: Una interfaz web para gestionar PostgreSQL, accesible desde el navegador en el puerto 80.
+
+En PyCharm, ejecutamos el archivo `docker-compose.yml`, asegurándonos de que Docker Desktop está activo. Para ello, utilizamos el siguiente comando en la terminal:
+![1](https://github.com/user-attachments/assets/f14eb01c-8277-49af-af65-74e99a6b7ebc)
+
+Luego, en la terminal, accedemos a http://localhost:80 en el navegador y nos registramos con el usuario y la contraseña por defecto, que están en el archivo `docker-compose.yml`, para ingresar a pgAdmin 4.
+![image](https://github.com/user-attachments/assets/2a0716a7-3082-4fe8-b896-828ccb30551c)
+
+Allí creamos un servicio de base de datos con un nombre personalizado.
+![image](https://github.com/user-attachments/assets/3962075c-99b9-49f1-81cd-cfad964a1fe4)
+
+En la sección **Connection**, ingresamos los siguientes datos:
+![image](https://github.com/user-attachments/assets/a9330aab-ef11-40ba-af9a-6b5bd0f830fe)
+Con esto, el contenedor se llama `db_erp` y utiliza el usuario `admin` y la contraseña `admin` para entrar en el servidor.
+
+Creamos la carpeta `bloc2_NOMALUMNX` en PyCharm Community. Dentro de esta carpeta, creamos otra carpeta llamada `postgresql_python`. Dentro de esta carpeta, creamos los siguientes archivos:
+
+### **connect.py**
 ![image](https://github.com/user-attachments/assets/8384095b-4b2c-496e-bdca-489abf41b1b6)
-En windows para poder usar python nos tenemos que instalar pyCharm y activarlo.Una vez descargado comprobamos quela version de python sea 
 
-Este codigo sirve para hace la conexión con la base de datos y poder hacer el CRUD (Create, Read, Update y Delete) de la tabla que se tenga en la base de datos (postgresql).
-Los datos que se muestran “the_bear”, “admin”, “admin”, “localhost” y “5432” son extraido del archivo docker-compose.yml creado en la documentación de Docker.
+Este código sirve para establecer la conexión con la base de datos y poder realizar las operaciones CRUD (Create, Read, Update y Delete) en una tabla de PostgreSQL.
+
+Los datos que se utilizan en la conexión:
+- **Base de datos**: the_bear
+- **Usuario**: admin
+- **Contraseña**: admin
+- **Host**: localhost
+- **Puerto**: 5432
+
+Estos datos se extraen del archivo `docker-compose.yml` creado en la configuración de Docker. Además, imprime el objeto de conexión indicando que está abierta (`closed: 0`), luego la cierra con `connect.close()` y vuelve a imprimir el objeto, ahora indicando que está cerrada (`closed: 1`).
+
+Luego, en PyCharm, instalamos los plugins. `psycopg2` es una librería para conectar Python con PostgreSQL, y `pandas` nos permite trabajar con datos en formato de tabla. Además, descargamos el archivo de clientes en formato `.csv` y lo añadimos en una carpeta con el nombre `send_data_to_db` que estará dentro de la carpeta `bloc2`.
+
+Dentro de `send_data_to_db` creamos los siguientes archivos:
+
+### **create_table_to_db.py**
+![image](https://github.com/user-attachments/assets/ebae9996-4abf-494d-90e7-3bb6d4a324ec)
+
+Se encargará de leer el archivo `.csv` para determinar los nombres y tipos de columnas y luego crear una tabla en la base de datos PostgreSQL con esos campos.
+
+### **csv_to_dict.py**
+![image](https://github.com/user-attachments/assets/05362e47-38b4-4b28-86e0-86e6a6715db4)
+
+Transformará el archivo `.csv` en una lista de diccionarios. Cada fila será un diccionario donde las claves son los nombres de las columnas y los valores los datos correspondientes.
+
+### **dict_to_db.py**
+![image](https://github.com/user-attachments/assets/dad241b0-7611-42aa-9eed-f9c0291912e8)
+
+### **create_register.py**
+![image](https://github.com/user-attachments/assets/4135f0b1-f0d4-464d-bcc8-547f7cdde8e7)
+
+### **main.py**
+![image](https://github.com/user-attachments/assets/5710dbbe-f56f-4579-a287-22562a08ceb2)
+
+Para comprobar que los datos se han añadido, debemos ir a **pgAdmin4**, refrescar la tabla de clientes y ejecutarla para que se muestren los datos introducidos.
+![image](https://github.com/user-attachments/assets/23373626-0c1e-457e-9d6a-55800ff1e907)
+
+Finalmente, debemos agregar los últimos códigos:
+
+### **read_registre.py**
+
+![read_registre.py](https://github.com/user-attachments/assets/9dd46f56-ea2d-47d5-8f7f-7b266f8362f3)
+
+conecta a la base de datos y recupera todos los registros de la tabla clientes, mostrando los datos en la terminal.
+
+### **update_registre.py**
+
+![update_registre.py](https://github.com/user-attachments/assets/38be6ed6-03c9-4d0d-a623-c215b8ff60bc)
+
+permite actualizar los datos de un cliente en la base de datos. Busca un registro por su ID y modifica los campos especificados.
+
+### **delete_registre.py**
+
+![delete_registre.py](https://github.com/user-attachments/assets/9d241fc2-731c-495e-b3b0-0c42d04d9fcb)
+
+Un registro específico de la tabla clientes según el ID proporcionado, asegurando que los datos se borren de la base de datos.
 

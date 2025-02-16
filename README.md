@@ -186,7 +186,7 @@ Para verificar el funcionamiento del proceso, eliminaremos tres clientes creados
 ![ak 1](https://github.com/user-attachments/assets/21cb657e-4741-4ac7-a32a-5f42834da074)
 
 **Fallos**
-Fallos
+
 - No podia añadir datos a la tabla  ya que los datos de pgadmin4 y los archivos dict_to_db.py no coindiean y lo teniena que ser exactos
 - Hay aliniar todo bien para que o detecte
 - Copié los archivos anteriores y tenía dos contenedores con el mismo nombre en Docker, por lo que tuve que eliminar uno, ya que causaba errores al iniciar Docker.

@@ -14,8 +14,7 @@ def create_reg():
 
 
    #Consulta preparada amb %s
-   sql_create = "INSERT INTO Clientes (name, address, phone, email, birthdate) VALUES (%s, %s, %s, %s, %s);"
-
+   sql = "INSERT INTO Clientes (nombre_cliente, dirección_cliente, teléfono_cliente, correo_electrónico_cliente, fecha_cumpleaños) VALUES (%s, %s, %s, %s, %s);"
 
    #Valors a afegir, en ordre, als %s de VALUES de la consulta preparada
    values = ('Roger', 'carrer el que sigui', '678113452', 'correu@correu.com', '1999-09-12')

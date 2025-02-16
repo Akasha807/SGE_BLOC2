@@ -10,4 +10,4 @@ def read_reg():
 
    results = cursor.fetchall()
    print(results)
-   print(results[4])
+   print(results[4],[5])

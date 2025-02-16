@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7752c261-70da-477b-bd35-dd7f5a0c4602" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloc2_AkashaKaram/postgresql_python/connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/bloc2_AkashaKaram/postgresql_python/connect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloc2_AkashaKaram/postgresql_python/create_registre.py" beforeDir="false" afterPath="$PROJECT_DIR$/bloc2_AkashaKaram/postgresql_python/create_registre.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bloc2_AkashaKaram/postgresql_python/read_registre.py" beforeDir="false" afterPath="$PROJECT_DIR$/bloc2_AkashaKaram/postgresql_python/read_registre.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloc2_AkashaKaram/postgresql_python/update_registre.py" beforeDir="false" afterPath="$PROJECT_DIR$/bloc2_AkashaKaram/postgresql_python/update_registre.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloc2_AkashaKaram/send_data_to_db/Clientes.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bloc2_AkashaKaram/send_data_to_db/dict_to_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/bloc2_AkashaKaram/send_data_to_db/dict_to_db.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

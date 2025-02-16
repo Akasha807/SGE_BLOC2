@@ -4,7 +4,7 @@ def delete_reg():
     cursor = conn.cursor()
 
     sql_delete = '''
-    DELETE FROM clientes
+    DELETE FROM Clientes
     WHERE id_cliente = 28
     '''
 

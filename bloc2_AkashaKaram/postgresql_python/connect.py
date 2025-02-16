@@ -10,3 +10,8 @@ def connection_db():
     )
 
     return conn
+connect = connection_db()
+
+print(connect)
+connect.close()
+print(connect)

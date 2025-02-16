@@ -14,11 +14,11 @@ def create_reg():
 
 
    #Consulta preparada amb %s
-   sql_create = "INSERT INTO Clientes (nombre_cliente, direción_cliente, teléfon_cliente, correo_electrónico_cliente, fecha_cumpleaños) VALUES (%s, %s, %s, %s, %s);"
+   sql_create = "INSERT INTO Clientes (name, address, phone, email, birthdate) VALUES (%s, %s, %s, %s, %s);"
 
 
    #Valors a afegir, en ordre, als %s de VALUES de la consulta preparada
-   values=('Roger', 'carrer el que sigui', '678113452', 'correu@correu.com', '12_09_1999')
+   values = ('Roger', 'carrer el que sigui', '678113452', 'correu@correu.com', '1999-09-12')
 
 
    #Enviar la consulta preparada amb els valors utilitzant el cursor

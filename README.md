@@ -117,7 +117,7 @@ Para visualizar los datos, es necesario usar un print(results). Si lo hacemos, o
 
 ![resultado](https://github.com/user-attachments/assets/cb143fbf-ba93-4c46-84fb-04a1b90ad807)
 
-###**Extracción de un registro específico**
+### **Extracción de un registro específico**
 
 Después de haber obtenido y mostrado todos los resultados de la consulta, el siguiente paso es extraer un registro concreto de la lista.Imaginemos que queremos obtener el registro donde id_cliente = 5 y mostrar todos sus datos. Para ello, debemos recorrer la lista de resultados y buscar el registro que tenga el identificador deseado.
 
@@ -137,7 +137,7 @@ Si solo necesitamos el número de cliente sin más información, podemos imprimi
 
 ![solo numero del cliente n 05](https://github.com/user-attachments/assets/34509025-85ba-4a24-b7f6-928cbbee2075)
 
-##**Ejercicos con registro**
+### **Ejercicos con registro**
 
 1. Los datos de Andreu
    
